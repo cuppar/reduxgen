@@ -4,5 +4,12 @@
   "main": "index.js",
   "repository": "git@github.com:cuppar/reduxgen.git",
   "author": "cuppar.he <cuppar.he@sap.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+    "reduxgen": "src/index.js"
+  },
+  "dependencies": {
+    "shelljs": "^0.8.4",
+    "yargs": "^15.3.1"
+  }
 }

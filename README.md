@@ -9,6 +9,7 @@
 ```bash
 $ git clone git@github.com:cuppar/reduxgen.git
 $ cd reduxgen
+$ chmod +x src/index.js
 $ yarn && yarn link
 ```
 
