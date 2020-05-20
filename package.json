@@ -1,0 +1,8 @@
+{
+  "name": "reduxgen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:cuppar/reduxgen.git",
+  "author": "cuppar.he <cuppar.he@sap.com>",
+  "license": "MIT"
+}
