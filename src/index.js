@@ -23,7 +23,7 @@ const ROOT_DIR_NAME = `reduxgen-${BO_NAME}`;
 
 if (fs.existsSync(ROOT_DIR_NAME)) {
   console.log(`Dir ${ROOT_DIR_NAME} has exist, exit.`);
-  // exit(1);
+  exit(1);
 }
 
 const normalTemplateFileNameList = [
