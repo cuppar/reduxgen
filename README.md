@@ -22,6 +22,7 @@ $ reduxgen product
 ```
 
 It will generate some files as below.
+
 ![dir](img/dir.png)
 
 Remind: The generated files and codes are only template files and cannot be run directly. You still need to manually modify some content, such as api path, import path, mock response data, etc.
