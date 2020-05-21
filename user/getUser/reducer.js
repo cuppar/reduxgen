@@ -1,14 +1,14 @@
 import _ from 'lodash';
 import {
-  <constants_placeholder>_BEGIN,
-  <constants_placeholder>_SUCCESS,
-  <constants_placeholder>_FAILED,
-  <constants_placeholder>_DISMISS_RESPONSE,
-  <constants_placeholder>_DISMISS_ERROR,
+  GET_USER_BEGIN,
+  GET_USER_SUCCESS,
+  GET_USER_FAILED,
+  GET_USER_DISMISS_RESPONSE,
+  GET_USER_DISMISS_ERROR,
 } from './constants';
 import axiosPlaceholder from 'axiosPlaceholder';
 import { mockRequest, enableMockApi } from 'utilsPlaceholder';
-import <mock_entity_placeholder> from '<mock_entity_placeholder>';
+import mockGetUser from 'mockGetUser';
 
 export const <file_name_placeholder> = (
   args = {
@@ -16,29 +16,29 @@ export const <file_name_placeholder> = (
   },
 ) => dispatch => {
   dispatch({
-    type: <constants_placeholder>_BEGIN,
+    type: GET_USER_BEGIN,
   });
 
   return new Promise((resolve, reject) => {
-    let doRequest = axiosPlaceholder.<method_placeholder>(`apiPathPlaceholder`);
+    let doRequest = axiosPlaceholder.<method_placeholder>(`pathPlaceholder`);
 
     // test
     if (enableMockApi) {
-      doRequest = mockRequest(200, <mock_entity_placeholder>, 100);
+      doRequest = mockRequest(200, mockGetUser, 100);
     }
     // end test
 
     doRequest.then(
       res => {
         dispatch({
-          type: <constants_placeholder>_SUCCESS,
+          type: GET_USER_SUCCESS,
           response: res,
         });
         resolve(res);
       },
       err => {
         dispatch({
-          type: <constants_placeholder>_FAILED,
+          type: GET_USER_FAILED,
           error: err,
         });
         reject(err);
@@ -47,19 +47,19 @@ export const <file_name_placeholder> = (
   });
 };
 
-export const dismiss<camel_case_file_name_placeholder>Response = () => dispatch =>
+export const dismissGetFeatureResponse = () => dispatch =>
   dispatch({
-    type: <constants_placeholder>_DISMISS_RESPONSE,
+    type: GET_USER_DISMISS_RESPONSE,
   });
 
-export const dismiss<camel_case_file_name_placeholder>Error = () => dispatch =>
+export const dismissGetFeatureError = () => dispatch =>
   dispatch({
-    type: <constants_placeholder>_DISMISS_ERROR,
+    type: GET_USER_DISMISS_ERROR,
   });
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case <constants_placeholder>_BEGIN:
+    case GET_USER_BEGIN:
       return {
         ...state,
         <entity_placeholder>: null,
@@ -67,7 +67,7 @@ export const reducer = (state, action) => {
         <file_name_placeholder>Response: null,
         <file_name_placeholder>Error: null,
       };
-    case <constants_placeholder>_SUCCESS:
+    case GET_USER_SUCCESS:
       return {
         ...state,
         <entity_placeholder>: _.get(action, `response.data`, null),
@@ -75,7 +75,7 @@ export const reducer = (state, action) => {
         <file_name_placeholder>Response: action.response,
         <file_name_placeholder>Error: null,
       };
-    case <constants_placeholder>_FAILED:
+    case GET_USER_FAILED:
       return {
         ...state,
         <entity_placeholder>: null,
@@ -83,12 +83,12 @@ export const reducer = (state, action) => {
         <file_name_placeholder>Response: null,
         <file_name_placeholder>Error: action.error,
       };
-    case <constants_placeholder>_DISMISS_RESPONSE:
+    case GET_USER_DISMISS_RESPONSE:
       return {
         ...state,
         <file_name_placeholder>Response: null,
       };
-    case <constants_placeholder>_DISMISS_ERROR:
+    case GET_USER_DISMISS_ERROR:
       return {
         ...state,
         <file_name_placeholder>Error: null,

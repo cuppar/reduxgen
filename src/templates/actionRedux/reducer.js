@@ -7,8 +7,7 @@ import {
   <constants_placeholder>_DISMISS_ERROR,
 } from './constants';
 import axiosPlaceholder from 'axiosPlaceholder';
-import { mockRequest, enableMockApi } from 'utilsPlaceholder';
-import <mock_entity_placeholder> from '<mock_entity_placeholder>';
+import { mockSuccessRequest, mockFailureRequest, enableMockApi } from 'utilsPlaceholder';
 
 export const <file_name_placeholder> = (
   args = {
@@ -24,7 +23,26 @@ export const <file_name_placeholder> = (
 
     // test
     if (enableMockApi) {
-      doRequest = mockRequest(200, <mock_entity_placeholder>, 100);
+      doRequest = mockSuccessRequest(
+        {
+          status: 200,
+          data: {
+            
+          },
+        },
+        100,
+      );
+
+      // doRequest = mockFailureRequest(
+      //   {
+      //     status: 500,
+      //     data: {
+      //       code: 500,
+      //       message: 'error message',
+      //     },
+      //   },
+      //   100,
+      // );
     }
     // end test
 
@@ -62,7 +80,6 @@ export const reducer = (state, action) => {
     case <constants_placeholder>_BEGIN:
       return {
         ...state,
-        <entity_placeholder>: null,
         <file_name_placeholder>Pending: true,
         <file_name_placeholder>Response: null,
         <file_name_placeholder>Error: null,
@@ -70,7 +87,6 @@ export const reducer = (state, action) => {
     case <constants_placeholder>_SUCCESS:
       return {
         ...state,
-        <entity_placeholder>: _.get(action, `response.data`, null),
         <file_name_placeholder>Pending: false,
         <file_name_placeholder>Response: action.response,
         <file_name_placeholder>Error: null,
@@ -78,7 +94,6 @@ export const reducer = (state, action) => {
     case <constants_placeholder>_FAILED:
       return {
         ...state,
-        <entity_placeholder>: null,
         <file_name_placeholder>Pending: false,
         <file_name_placeholder>Response: null,
         <file_name_placeholder>Error: action.error,
